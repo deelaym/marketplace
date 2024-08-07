@@ -1,4 +1,6 @@
-from sqlalchemy import Column, Integer, String, Text, ForeignKey, Numeric, CheckConstraint
+from datetime import datetime
+
+from sqlalchemy import Column, Integer, String, Text, ForeignKey, Numeric, CheckConstraint, DateTime
 from sqlalchemy.orm import relationship
 
 from .database import Base
@@ -15,6 +17,8 @@ class Product(Base):
     amount = Column(Integer)
     price = Column(Numeric(10, 2))
     discount = Column(Integer)
+    created_at = Column(DateTime, default=datetime.now)
+    updated_at = Column(DateTime, default=datetime.now)
     shop = relationship('Shop', backref='shop')
     category = relationship('Category', backref='category')
 

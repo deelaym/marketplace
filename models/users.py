@@ -11,6 +11,7 @@ class User(Base):
     username = Column(String)
     password = Column(String)
     created_at = Column(DateTime, default=datetime.now)
+    updated_at = Column(DateTime, default=datetime.now)
     orders = relationship("Order", backref='orders')
     favorites = relationship("Favorites", backref='favorites', uselist=False)
 

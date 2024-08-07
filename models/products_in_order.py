@@ -1,4 +1,6 @@
-from sqlalchemy import Column, Integer, ForeignKey
+from datetime import datetime
+
+from sqlalchemy import Column, Integer, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 
 from .database import Base
@@ -9,4 +11,6 @@ class ProductsInOrder(Base):
     id = Column(Integer, primary_key=True)
     product_id = Column(Integer, ForeignKey('products.product_id'))
     amount = Column(Integer)
-    products = relationship('Product', backref='products')
+    created_at = Column(DateTime, default=datetime.now)
+    updated_at = Column(DateTime, default=datetime.now)
+    products = relationship('Product', backref='product_in_order')

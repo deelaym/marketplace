@@ -1,4 +1,6 @@
-from sqlalchemy import Column, Integer, String, Text
+from datetime import datetime
+
+from sqlalchemy import Column, Integer, String, Text, DateTime
 from sqlalchemy.orm import relationship
 
 from .database import Base
@@ -10,4 +12,6 @@ class Shop(Base):
     name = Column(String)
     description = Column(Text)
     photo_url = Column(String)
-    products = relationship('Product', backref='products')
+    created_at = Column(DateTime, default=datetime.now)
+    updated_at = Column(DateTime, default=datetime.now)
+    products = relationship('Product', backref='shop_products')

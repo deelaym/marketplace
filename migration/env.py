@@ -14,7 +14,7 @@ DB_PASS = os.getenv('DB_PASSWORD')
 DB = os.getenv('DB')
 DB_HOST = os.getenv('DB_HOST')
 DB_PORT = os.getenv('DB_PORT')
-DATABASE_URL = f'postgresql+psycopg2://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB}'
+DATABASE_URL = f'postgresql+asyncpg://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB}'
 
 
 # this is the Alembic Config object, which provides
