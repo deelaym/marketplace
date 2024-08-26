@@ -1,7 +1,9 @@
 fastapi
+pydantic
 uvicorn
 sqlalchemy
 asyncpg
 alembic
 pytest
 pytest-asyncio
+aio-pika
