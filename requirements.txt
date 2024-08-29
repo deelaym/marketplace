@@ -3,3 +3,5 @@ uvicorn
 sqlalchemy
 asyncpg
 alembic
+pytest
+pytest-asyncio
