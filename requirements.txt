@@ -7,3 +7,4 @@ alembic
 pytest
 pytest-asyncio
 aio-pika
+python-dotenv
