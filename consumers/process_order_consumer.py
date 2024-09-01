@@ -19,7 +19,7 @@ async def process_order(message: IncomingMessage):
     async with message.process():
         order = json.loads(message.body)
         async with aiohttp.ClientSession() as session:
-            async with session.post(f'http://{APP_HOST}:{APP_PORT}/orders/change_status?status_id=2',
+            async with session.post(f'http://{APP_HOST}:{APP_PORT}/orders/change_status?status_id={order["status_id"] + 1}',
                                     json=order) as response:
                 if response.status == 200:
                     log.info(f'Order {order['order_id']} changed status to {order['status_id'] + 1}')
