@@ -10,7 +10,9 @@ class ProductsInOrder(Base):
     __tablename__ = 'products_in_orders'
     id = Column(Integer, primary_key=True)
     product_id = Column(Integer, ForeignKey('products.product_id'))
+    order_id = Column(Integer, ForeignKey('orders.order_id'))
     amount = Column(Integer)
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now)
-    products = relationship('Product', backref='product_in_order')
+    products = relationship('Product', backref='product_list')
+    order = relationship('Order', backref='order')
